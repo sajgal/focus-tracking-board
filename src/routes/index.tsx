@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Link, redirect } from '@tanstack/react-router'
+import { ModeToggle } from '@/components/mode-toggle'
 
 export const Route = createFileRoute('/')({
   beforeLoad: ({ context }) => {
@@ -46,6 +47,10 @@ function HomeComponent() {
           page. When an authenticated user visits this route, they're
           automatically redirected to <code>/dashboard</code>.
         </p>
+      </section>
+
+      <section>
+        <ModeToggle />
       </section>
 
       <section className="mt-6">
