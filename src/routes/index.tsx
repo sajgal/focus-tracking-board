@@ -1,6 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Link, redirect } from '@tanstack/react-router'
+
 import { ModeToggle } from '@/components/mode-toggle'
+
+import { Separator } from '@/components/ui/separator'
 
 export const Route = createFileRoute('/')({
   beforeLoad: ({ context }) => {
@@ -19,42 +22,29 @@ export const Route = createFileRoute('/')({
 function HomeComponent() {
   return (
     <div className="p-4 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">
-        Welcome to TS Router + Firebase
-      </h1>
+      <section className='mb-6 flex justify-between items-center'>
+        <h1 className="text-2xl font-bold mb-4">
+          Focus<br />
+          Tracking<br />
+          Board<br />
+        </h1>
 
-      <section className="mb-6 p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">
-        <h2 className="text-xl font-semibold mb-2">About This Template</h2>
-        <p className="mb-2">
-          This template demonstrates a SPA architecture using:
-        </p>
-        <ul className="list-disc list-inside mb-4">
-          <li>TanStack Router for type-safe routing</li>
-          <li>Firebase Client SDK for authentication</li>
-        </ul>
-        <p>
-          <strong>Project Organization:</strong> Routes under <code>_auth</code>{' '}
-          are protected, while other routes are public. The{' '}
-          <code>(public)</code> folder is used purely for organization and
-          doesn't affect routing.
-        </p>
-      </section>
-
-      <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">How It Works</h2>
-        <p className="mb-3">
-          This page (<code>index.tsx</code>) serves as your public landing/sales
-          page. When an authenticated user visits this route, they're
-          automatically redirected to <code>/dashboard</code>.
-        </p>
-      </section>
-
-      <section>
         <ModeToggle />
       </section>
 
+      <Separator />
+
+      <section className="mb-6 mt-2 p-4">
+        <div className='text-2xl text-center'>
+          This is for you if you like tracking your progress. <br />
+          <small>Screenshots will be added soon.</small>
+        </div>
+      </section>
+
+      <Separator />
+
       <section className="mt-6">
-        <h2 className="text-xl font-semibold mb-2">Navigation</h2>
+        <h2 className="text-xl font-semibold mb-2">You should probably log in first</h2>
         <div className="flex gap-4">
           <Link
             to="/login"
