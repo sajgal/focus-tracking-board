@@ -1,7 +1,7 @@
-import { GithubAuthProvider } from 'firebase/auth'
+import { GithubAuthProvider, type AuthProvider } from 'firebase/auth'
 import type { AnyRouter } from '@tanstack/react-router'
 
-export const handleSignInUtil = async (router: AnyRouter, login: (provider: GithubAuthProvider) => void, provider: 'github') => {
+export const handleSignInUtil = async (router: AnyRouter, login: (provider: AuthProvider) => Promise<void>, provider: 'github') => {
     try {
       const providers = {
         github: new GithubAuthProvider(),
