@@ -47,7 +47,7 @@ export function AuthContextProvider({
 
   const login = React.useCallback(async (provider: AuthProvider) => {
     const result = await signInWithPopup(auth, provider)
-    // const result = await signInWithRedirect(auth, provider)
+
     flushSync(() => {
       setUser(result.user)
       setIsInitialLoading(false)

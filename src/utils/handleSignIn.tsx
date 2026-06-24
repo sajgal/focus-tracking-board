@@ -15,7 +15,7 @@ export const handleSignInUtil = async (router: AnyRouter, login: (provider: Auth
         })()
 
       await login(typedProvider)
-      router.invalidate() // This should force the user to route to /dashboard
+      router.invalidate() // This forces the user to route to /dashboard
     } catch (error) {
       console.error('Sign in error:', error)
     }
