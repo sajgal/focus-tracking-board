@@ -1,0 +1,22 @@
+import { GithubAuthProvider } from 'firebase/auth'
+import type { AnyRouter } from '@tanstack/react-router'
+
+export const handleSignInUtil = async (router: AnyRouter, login: (provider: GithubAuthProvider) => void, provider: 'github') => {
+    try {
+      const providers = {
+        github: new GithubAuthProvider(),
+        // Other providers can be allocated here
+      }
+
+      const typedProvider =
+        providers[provider] ??
+        (() => {
+          throw new Error('Invalid provider')
+        })()
+
+      await login(typedProvider)
+      router.invalidate() // This should force the user to route to /dashboard
+    } catch (error) {
+      console.error('Sign in error:', error)
+    }
+  }

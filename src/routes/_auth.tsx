@@ -8,7 +8,7 @@ export const Route = createFileRoute('/_auth')({
     if (!context.auth.isAuthenticated) {
       console.log('User not authenticated, redirecting to login...')
       throw redirect({
-        to: '/login',
+        to: '/',
         search: {
           redirect: location.href,
         },
@@ -28,7 +28,7 @@ function AuthLayout() {
     if (window.confirm('Are you sure you want to logout?')) {
       auth.logout().then(() => {
         router.invalidate().finally(() => {
-          navigate({ to: '/login' })
+          navigate({ to: '/' })
         })
       })
     }

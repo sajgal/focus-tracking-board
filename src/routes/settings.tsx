@@ -12,7 +12,7 @@ export const Route = createFileRoute('/settings')({
     if (!context.auth.isAuthenticated) {
       console.log('User not authenticated, redirecting to login...')
       throw redirect({
-        to: '/login',
+        to: '/',
         search: {
           redirect: location.href,
         },

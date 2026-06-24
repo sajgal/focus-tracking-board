@@ -40,7 +40,6 @@ export function AuthContextProvider({
   }, [])
 
   const logout = React.useCallback(async () => {
-    console.log('Logging out...')
     await signOut(auth)
     setUser(null)
     setIsInitialLoading(false)
@@ -48,6 +47,7 @@ export function AuthContextProvider({
 
   const login = React.useCallback(async (provider: AuthProvider) => {
     const result = await signInWithPopup(auth, provider)
+    // const result = await signInWithRedirect(auth, provider)
     flushSync(() => {
       setUser(result.user)
       setIsInitialLoading(false)
@@ -63,7 +63,7 @@ export function AuthContextProvider({
   )
 }
 
-export function useAuth() {
+export function useAuth(): AuthContextType {
   const context = React.useContext(AuthContext)
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider')

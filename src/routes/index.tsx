@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Link, redirect } from '@tanstack/react-router'
+import { redirect } from '@tanstack/react-router'
 
 import { ModeToggle } from '@/components/mode-toggle'
 
 import { Separator } from '@/components/ui/separator'
+import { GithubLogin } from '@/components/github-login'
 
 export const Route = createFileRoute('/')({
   beforeLoad: ({ context }) => {
@@ -44,20 +45,10 @@ function HomeComponent() {
       <Separator />
 
       <section className="mt-6">
-        <h2 className="text-xl font-semibold mb-2">You should probably log in first</h2>
-        <div className="flex gap-4">
-          <Link
-            to="/login"
-            className="px-4 py-2 bg-primary text-white hover:bg-amber-900"
-          >
-            Login
-          </Link>
-          <Link
-            to="/dashboard"
-            className="px-4 py-2 border border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-          >
-            Dashboard (Protected)
-          </Link>
+        <h2 className="text-xl font-semibold mb-2 text-center">You should probably log in first</h2>
+
+        <div className='flex justify-center'>
+          <GithubLogin />
         </div>
       </section>
     </div>
